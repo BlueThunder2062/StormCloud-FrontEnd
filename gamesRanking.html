@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Games Ranking</title>
+    <link rel="stylesheet" href="css/styleGamesRanking.css">
+</head>
+<body>
+<div id="waitForConnection">Connecting to server. This may take about 60 seconds if server is asleep.</div>
+<div id="app-container">
+
+    <!-- LEFT SIDEBAR -->
+    <aside id="sidebar">
+
+        <div id="sort-options">
+            <button class="sort-btn">Alphabetical</button>
+            <button class="sort-btn">Your Ranking</button>
+            <button class="sort-btn">Global Ranking</button>
+        </div>
+
+        <h3>--------------</h3>
+
+        <div id="user-list-container">
+            <div id="user-list">
+                <button class="user-btn">User A</button>
+                <button class="user-btn">User B</button>
+                <button class="user-btn">User C</button>
+            </div>
+        </div>
+
+        <a id="home-link" href="home.html">← Back to Storm Cloud Home</a>
+
+    </aside>
+
+    <!-- MAIN CONTENT -->
+    <main id="main-content">
+
+        <!-- SEARCH + FILTERS -->
+        <div id="top-controls">
+
+            <input type="text" id="searchbox" placeholder="Search games...">
+
+            <div id="filters">
+
+                <div class="filter-column">
+                    <label><input type="checkbox"> Owned</label>
+                    <label><input type="checkbox"> Unowned</label>
+                </div>
+
+                <div class="filter-column">
+                    <label><input type="checkbox"> Played</label>
+                    <label><input type="checkbox"> Unplayed</label>
+                </div>
+
+                <div class="filter-column">
+                    <label><input type="checkbox"> Beaten</label>
+                    <label><input type="checkbox"> Unbeaten</label>
+                </div>
+
+            </div>
+
+
+        </div>
+
+        <!-- ADD GAME BUTTON -->
+        <button id="add-game-btn">Click to add game</button>
+
+        <dialog id="myDialog">
+            <form method="dialog">
+                <p>Enter name of video game:</p>
+                <input type="text" id="userInput" />
+
+                <menu>
+                <button id="cancelBtn" value="cancel">Cancel</button>
+                <button id="confirmBtn" value="confirm">Confirm</button>
+                </menu>
+            </form>
+        </dialog>
+
+        <dialog id="messageDialog">
+            <p id="messageText"></p>
+            <button id="messageCloseBtn">OK</button>
+        </dialog>
+
+        <!-- GAME LIST -->
+        <div id="game-list">
+
+            <div class="game-item">
+                <div class="game-title">Game 1</div>
+
+                <div class="game-flags">
+                    <label><input type="checkbox" checked> Owned</label>
+                    <label><input type="checkbox" checked> Played</label>
+                    <label><input type="checkbox" checked> Beaten</label>
+                </div>
+
+                <input class="game-score" type="text" value="100">
+            </div>
+
+            <div class="game-item">
+                <div class="game-title">Game 2 Legend of Zelda Ocarina of Time HD Remaster Final Chapter Prolog 2.7 Final Cut</div>
+
+                <div class="game-flags">
+                    <label><input type="checkbox" checked> Owned</label>
+                    <label><input type="checkbox" checked> Played</label>
+                    <label><input type="checkbox"> Beaten</label>
+                </div>
+
+                <input class="game-score" type="text" value="87">
+            </div>
+
+            <div class="game-item">
+                <div class="game-title">Game 3</div>
+
+                <div class="game-flags">
+                    <label><input type="checkbox"> Owned</label>
+                    <label><input type="checkbox"> Played</label>
+                    <label><input type="checkbox"> Beaten</label>
+                </div>
+
+                <input class="game-score" type="text" value="26">
+            </div>
+            
+
+        </div>
+
+    </main>
+
+</div>
+<script type="module" src="js/gamesRanking.js"></script>
+</body>
+</html>

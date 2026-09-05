@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>User Settings</title>
+    <link rel="stylesheet" href="css/styleUserSettings.css">
+</head>
+<body>
+
+    <div id="waitForConnection">Connecting to server. This may take about 60 seconds if server is asleep.</div>
+
+    <div id="settings-wrapper">
+
+        <!-- Profile Picture Container -->
+        <div id="user-icon">
+            <img src="images/DefaultProfilePicture.png" class="icon-base" id="userIcon" alt="User Profile Picture">
+            <input type="file" id="fileInput" accept="image/*" style="display:none;">
+            <img src="images/EmptyPicture.png" class="icon-border" id="userBorder" alt="">
+        </div>
+
+        <!-- Username Display -->
+        <div id="username-display"></div>
+
+        <div id="hiddenSettings">
+
+        <!-- Border Dropdown -->
+        <div class="setting-block">
+            <label for="border-select" class="setting-label">Select Border</label>
+            <select id="border-select" class="setting-dropdown">
+                <option value="default">Default Border</option>
+                <option value="gold">Gold Border</option>
+                <option value="silver">Silver Border</option>
+                <option value="none">No Border</option>
+            </select>
+        </div>
+
+        <!-- Title Dropdown -->
+        <div class="setting-block">
+            <label for="title-select" class="setting-label">Select Title</label>
+            <select id="title-select" class="setting-dropdown">
+                <option value="">None</option>
+                <option value="The Brave">The Brave</option>
+                <option value="The Swift">The Swift</option>
+                <option value="The Wise">The Wise</option>
+                <option value="The Mighty">The Mighty</option>
+            </select>
+        </div>
+        
+        <!--hidden settings div-->
+        </div>
+    
+        <!-- Placeholder for future settings -->
+        <div id="more-settings"></div>
+
+        <a id="homeLink" href="home.html">Back to Storm Cloud Main</a>
+
+        <a id="logoutLink">Logout</a>
+
+    </div>
+
+    <script type="module" src="js/userSettings.js"></script>
+</body>
+</html>

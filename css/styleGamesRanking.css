@@ -1,0 +1,242 @@
+:root {
+    --bg: #1d0025;
+
+    --sidebar-bg: #ddd;
+    --sidebar-text: #000;
+
+    --button-bg: #bbb;
+    --button-bg-hover: #aaa;
+    --button-text: #000;
+
+    --user-list-bg: #ccc;
+    --user-item-bg: #eee;
+
+    --main-text: #000;
+
+    --game-list-bg: #e0e0e0;
+    --game-item-bg: #fff;
+    --game-score-text: #fff;
+
+    --input-bg-hover: #f0f0f0;
+    --input-border-hover: #aaa;
+    --input-text-hover: #000;
+
+    --add-game-btn: #0000;
+    --add-game-btn-text: #ffffff;
+    --add-game-btn-hover: #b3686800;
+
+    --searchbox-bg: #b3686800;
+    --searchbox-placeholder-color: #74222277;
+    
+}
+
+
+/* Layout */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: var(--bg);
+}
+
+/* Change background of wait for connection screen to hopefully not be noticed */
+#waitForConnection {
+    background-color: #524c59;
+    color: #ffffff;
+}
+
+#app-container {
+    display: flex;
+    height: 100vh;
+    overflow: hidden;
+}
+
+/* Sidebar */
+#sidebar {
+    width: 250px;
+    background: var(--sidebar-bg);
+    color: var(--sidebar-text);
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+#sort-options h3,
+#user-list-container h3 {
+    margin: 5px 0;
+    background: var(--button-bg);
+    color: var(--button-text);
+}
+
+.sort-btn,
+.user-btn {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 5px;
+    background: var(--button-bg);
+    color: var(--button-text);
+    border: none;
+    cursor: pointer;
+    text-align: left;
+    border-radius: 4px;
+}
+
+.sort-btn:hover,
+.user-btn:hover {
+    background: var(--button-bg-hover);
+}
+
+/* Scrollable user list */
+#user-list-container {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden; 
+}
+
+#user-list {
+    overflow-y: auto;
+    flex-grow: 1;
+    padding-right: 5px;
+    height: 100%; 
+    background: var(--user-list-bg);
+}
+
+.user-btn {
+    background: var(--button-bg);
+}
+
+/* Main content */
+#main-content {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    box-sizing: border-box;
+    color: var(--main-text);
+}
+
+/* Search + Filters */
+#top-controls {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+#searchbox {
+    padding: 8px;
+    font-size: 16px;
+    background-color: var(--searchbox-bg);
+    border: none;
+    outline: none;
+    box-shadow: none;
+}
+
+#searchbox::placeholder {
+    color: var(--searchbox-placeholder-color);
+    opacity: 1; /* ensures consistent color across browsers */
+}
+
+/* Filters arranged in vertical pairs */
+#filters {
+    display: flex;
+    gap: 40px;        /* spacing between the three columns */
+    margin-top: 5px;
+}
+
+.filter-column {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;         /* spacing between Owned/Unowned etc. */
+}
+
+.filter-column label {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 14px;
+}
+
+
+/* Add game button */
+#add-game-btn {
+    margin-top: 10px;
+    padding: 10px;
+    background-color: var(--add-game-btn);
+    color: var(--add-game-btn-text);
+    border: none;
+    cursor: pointer;
+}
+
+#add-game-btn:hover {
+    background: var(--add-game-btn-hover);
+}
+
+/* Game list */
+#game-list {
+    margin-top: 10px;
+    overflow-y: auto;
+    flex-grow: 1;
+    background: var(--game-list-bg);
+    padding: 10px;
+    /*border: 1px solid #999;*/
+}
+
+/* Game item layout */
+.game-item {
+    display: grid;
+    grid-template-columns: 1fr 1fr 80px;
+    align-items: center;
+    background: var(--game-item-bg);
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 6px;
+    gap: 10px;
+}
+
+.game-title {
+    font-weight: bold;
+}
+
+/* Flags always centered column */
+.game-flags {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+/* Score textbox that looks like plain text */
+.game-score {
+    width: 70px;
+    text-align: center;
+    font-size: 18px;
+    font-weight: bold;
+    border: none;
+    color: var(--game-score-text);
+    background: transparent;
+    outline: none;
+    padding: 4px;
+}
+
+.game-score:hover,
+.game-score:focus {
+    background: var(--input-bg-hover);
+    border: 1px solid var(--input-border-hover);
+    color: var(--input-text-hover);
+    border-radius: 4px;
+}
+
+#home-link {
+    margin-top: 10px;
+    padding: 8px;
+    background: var(--button-bg);
+    color: var(--button-text);
+    text-decoration: none;
+    display: block;
+    border-radius: 4px;
+    text-align: left;
+}
+
+#home-link:hover {
+    background: var(--button-bg-hover);
+}

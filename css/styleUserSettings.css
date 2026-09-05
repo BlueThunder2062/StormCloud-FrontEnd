@@ -1,0 +1,187 @@
+/* ========================= */
+/* Global + Color Variables  */
+/* ========================= */
+
+:root {
+    --bg: #524c59;
+    --accent: #d0d0d0;
+    --text-color: #ffffff;
+    --username-color: #000000;
+    --title-color: #000000;
+    --dropdown-bg: #ffffff;
+    --dropdown-border: #cccccc;
+    --link-color: #0066cc;
+    --link-hover-color: #004999;
+    --logoutlink-color: #cc0000;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background: var(--bg);
+    font-family: Arial, sans-serif;
+    color: var(--text-color);
+}
+
+/* ========================= */
+/* Center Wrapper            */
+/* ========================= */
+
+#settings-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;      /* horizontal center */
+    justify-content: center;  /* vertical center */
+    min-height: 100vh;
+    padding: 20px;
+}
+
+/* ========================= */
+/* Profile Picture + Border  */
+/* (Matches Home Screen)     */
+/* ========================= */
+
+#user-icon {
+    background: none;
+    border-radius: 50%;
+    width: 120px;
+    height: 120px;
+    position: relative;
+    margin: 0 auto 50px auto;
+    overflow: visible;
+    cursor: pointer;
+}
+
+#user-icon .icon-border {
+    position: absolute;
+    top: -40%;      /* same ratio as home screen */
+    left: -35%;
+    width: 170%;
+    height: 170%;
+    object-fit: contain;
+    z-index: 2;
+    pointer-events: none;
+}
+
+#user-icon .icon-base {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+    z-index: 1;
+    position: relative;
+}
+
+/* ========================= */
+/* Username Display          */
+/* ========================= */
+
+#username-display {
+    margin-top: 10px;
+    font-size: 1.3rem;
+    font-weight: bold;
+    color: var(--username-color);
+    text-align: center;
+}
+
+/* ========================= */
+/* Setting Blocks            */
+/* ========================= */
+
+.setting-block {
+    margin-top: 25px;
+    width: 260px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.setting-label {
+    font-size: 1rem;
+    font-weight: bold;
+    color: var(--title-color);
+}
+
+/* ========================= */
+/* Dropdown Styling          */
+/* ========================= */
+
+.setting-dropdown {
+    padding: 10px;
+    border-radius: 8px;
+    border: 2px solid var(--dropdown-border);
+    background: var(--dropdown-bg);
+    font-size: 1rem;
+    color: var(--text-color);
+    outline: none;
+    cursor: pointer;
+}
+
+/* Hover + Focus */
+.setting-dropdown:hover {
+    border-color: var(--accent);
+}
+
+.setting-dropdown:focus {
+    border-color: var(--accent);
+    box-shadow: 0 0 4px var(--accent);
+}
+
+/* ========================= */
+/* Future Settings Container */
+/* ========================= */
+
+#more-settings {
+    margin-top: 30px;
+    width: 260px;
+}
+
+/* ========================= */
+/* Mobile Adjustments        */
+/* ========================= */
+
+@media (max-width: 600px) {
+    #settings-wrapper {
+        padding: 10px;
+    }
+
+    .setting-block,
+    #more-settings {
+        width: 90%;
+    }
+}
+
+/* ========================= */
+/* Home Link                 */
+/* ========================= */
+
+#homeLink {
+    margin-top: 40px;
+    font-size: 1rem;
+    color: var(--link-color);
+    text-decoration: none;
+    font-weight: bold;
+}
+
+#homeLink:hover {
+    color: var(--link-hover-color);
+    text-decoration: underline;
+}
+
+/* ========================= */
+/* Logout Link               */
+/* ========================= */
+
+#logoutLink {
+    margin-top: 40px;
+    font-size: 1rem;
+    color: var(--logoutlink-color);
+    text-decoration: none;
+    font-weight: bold;
+}
+
+#logoutLink:hover {
+    color: var(--link-hover-color);
+    text-decoration: underline;
+    cursor: pointer;
+}

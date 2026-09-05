@@ -1,0 +1,286 @@
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #524c59;
+}
+
+/* Change background of wait for connection screen to hopefully not be noticed */
+#waitForConnection {
+    background-color: #524c59;
+    color: #ffffff;
+}
+
+
+.centeredPage {
+    display: flex;
+    flex-direction: column;
+    align-items: center;      /* horizontal center */
+    justify-content: center;  /* vertical center */
+    min-height: 100vh;        /* full screen height */
+}
+
+#loginForm {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    width: 250px; /* optional but makes it look clean */
+}
+
+#error {
+
+    color: red;
+
+}
+
+:root {
+    --bg: #f0f0f0;
+    --accent: #d0d0d0;
+    --sidebar-bg: #ffffff;
+    --tile-bg: #cccccc;
+    --announcement-bg: #e0e0e0;
+    --text-color: #000000;
+    --username-color: #000000;
+    --title-color: #000000;
+    --announcement-text: #000000;
+}
+
+/* Full screen lock WITHOUT touching <body> */
+#page-wrapper {
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden;
+}
+
+/* Announcement bar */
+#announcement-bar {
+    background: var(--announcement-bg);
+    padding: 10px 20px;
+}
+
+/* Main layout container */
+#main-layout {
+    display: flex;
+    height: calc(100vh - 60px); /* Adjust if announcement bar height changes */
+    background: var(--bg);
+}
+
+/* Image grid */
+#image-grid {
+    flex: 1;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    grid-auto-rows: 180px;
+    gap: 15px;
+    padding: 20px;
+    overflow-y: auto;
+    scrollbar-color: var(--tile-bg) transparent;
+}
+
+.img-tile {
+    background: var(--tile-bg);
+    border-radius: 12px;
+    cursor: pointer;
+}
+
+/* Sidebar */
+#sidebar {
+    width: 260px;
+    background: var(--sidebar-bg);
+    border-left: 2px solid var(--accent);
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+}
+
+/* Sidebar list scroll */
+#sidebar-list {
+    overflow-y: auto;
+    flex: 1;
+    padding-right: 10px;
+    margin-top: 30px;
+    /*scrollbar-width: thin;*/
+    scrollbar-color: var(--accent) transparent;
+}
+/*
+#sidebar-list::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+#sidebar-list::-webkit-scrollbar-thumb {
+    background: var(--accent);
+}*/
+
+.list-item {
+    background: var(--tile-bg);
+    padding: 10px 12px;
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+
+/* User icon border stuff*/
+#user-icon {
+    background: none;
+    border-radius: 50%;
+    width: 120px;
+    height: 120px;
+    position: relative;       /* allows absolute positioning inside */
+    margin: 0 auto 30px auto;
+    margin-top: 50px;
+    overflow: visible;
+    cursor: pointer;
+}
+#user-icon .icon-border {
+    position: absolute;
+    top: -40%;      /* moves it upward */
+    left: -35%;     /*  moves it left */
+    width: 170%;    /* bigger than the icon */
+    height: 170%;   /* same scale */
+    object-fit: contain;
+    z-index: 2;
+    pointer-events: none;
+}
+
+
+#user-icon .icon-base {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+    z-index: 1;
+    position: relative;
+}
+
+/* user icon border stuff */
+/*
+#user-icon img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+}*/
+
+.img-tile img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 12px; /* match the tile’s rounded corners */
+    display: block; /* removes tiny gaps caused by inline images */
+}
+
+.img-tile {
+    background: var(--tile-bg);
+}
+
+#image-grid {
+    background: var(--bg);
+}
+
+#announcement-bar {
+    background: var(--announcement-bg);
+}
+
+.list-item {
+    background: var(--accent);
+    color: var(--text-color);
+}
+
+#announcement-bar h1 {
+    color: var(--announcement-text);
+}
+
+#sidebar {
+    border-left: none;
+}
+
+#username-display {
+    margin-top: 10px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: var(--username-color);
+    text-align: center;
+}
+
+#title-display {
+    margin-top: 10px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: var(--title-color);
+    text-align: center;
+}
+
+/*announcement scroll*/
+#announcement-bar {
+    background: var(--announcement-bg);
+    height: 60px;                 /* keeps your height */
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    position: relative;
+    padding: 0 20px;
+}
+
+#announcement-text {
+    white-space: nowrap;
+    position: absolute;
+    left: 100%;                   /* start fully off-screen */
+    min-width: 100%;              /* <-- THIS is the magic fix */
+    animation: marquee 12s linear infinite;
+}
+
+@keyframes marquee {
+    0% {
+        transform: translateX(0);        /* starts off-screen because of left:100% */
+    }
+    100% {
+        transform: translateX(-200%);    /* moves far enough left to fully exit */
+    }
+}
+
+.static-announcement {
+    position: static !important;
+    animation: none !important;
+    transform: none !important;
+    min-width: auto !important;
+    white-space: normal !important;
+}
+/* ========================== */
+
+/* handles when the home screen is on phone */
+@media (max-width: 700px) {
+
+    #main-layout {
+        display: flex;
+        flex-direction: column;
+        height: calc(100vh - 60px); /* adjust if your announcement bar is taller/shorter */
+        overflow: hidden;
+    }
+
+    #sidebar {
+        order: 1;
+        width: 100%;
+        border-left: none;
+        border-top: none;
+        padding: 16px 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        flex-shrink: 0;
+    }
+
+    #sidebar-list {
+        display: none;
+    }
+
+    #image-grid {
+        order: 2;
+        width: 100%;
+        flex: 1;
+        overflow-y: auto;
+        padding: 16px;              /* equal padding on all sides */
+        box-sizing: border-box;     /* keep padding inside the width */
+        background: var(--bg);
+        grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+        grid-auto-rows: 140px;
+    }
+}
+/* ========================== */
