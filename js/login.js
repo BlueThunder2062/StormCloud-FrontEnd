@@ -8,7 +8,7 @@ const btnSignUp = document.getElementById("signUp")
 const lblError = document.getElementById("error")
 const lblDisplay = document.getElementById("display")
 
-const backendString = "http://localhost:3000";
+const backendString = "https://stormcloud-backend.onrender.com";//"http://localhost:3000";
 
 //Heartbeat that keeps the server awake as long as the user is on the website
 import { startHeartbeat } from "./heartbeat.js";

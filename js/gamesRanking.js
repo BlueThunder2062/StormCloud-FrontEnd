@@ -1,6 +1,6 @@
 console.log("gamesRanking.js loaded");
 
-const backendString = "http://localhost:3000";
+const backendString = "https://stormcloud-backend.onrender.com";//"http://localhost:3000";
 
 //components
 const waitScreen = document.getElementById("waitForConnection")
