@@ -190,3 +190,23 @@ gamesRankingImage.addEventListener("mouseenter", () => {
 gamesRankingImage.addEventListener("mouseleave", () => {
     gamesRankingImage.src = "images/GamesRankingMouseOff.png";
 });
+
+//Takes user to game challenges
+gameChallengesImage.addEventListener("click", () => window.location.href = "gameChallenges.html");
+
+//makes it so the hover image is displayed when the mouse is hovered over
+gameChallengesImage.addEventListener("mouseenter", () => {
+    gameChallengesImage.src = "images/GameChallengesMouseOn.png";
+});
+gameChallengesImage.addEventListener("mouseleave", () => {
+    gameChallengesImage.src = "images/GameChallengesMouseOff.png";
+});
+
+
+//makes it so the hover image is displayed when the mouse is hovered over
+gamesRankingImage.addEventListener("mouseenter", () => {
+    gamesRankingImage.src = "images/GamesRankingMouseOn.png";
+});
+gamesRankingImage.addEventListener("mouseleave", () => {
+    gamesRankingImage.src = "images/GamesRankingMouseOff.png";
+});
