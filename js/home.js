@@ -10,6 +10,7 @@ const txtUsername = document.getElementById("username-display")
 const imgUserIcon = document.getElementById("userIcon")
 //const voiceLoungeImage = document.getElementById("voiceLounge");
 const gamesRankingImage = document.getElementById("gamesRanking");
+const gameChallengesImage = document.getElementById("gameChallenges");
 
 //component that allows the user to input a file
 const fileInput = document.getElementById("fileInput");
