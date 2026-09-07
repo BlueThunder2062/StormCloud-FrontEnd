@@ -1,0 +1,166 @@
+/* ===========================
+   COLOR VARIABLES
+   =========================== */
+:root {
+    --bg-main: #1f1a0f;
+    --bg-sidebar: #18120a;
+    --bg-card: #332818;
+
+    --text-main: #ffffff;
+    --text-muted: #d8cbb8;
+
+    --accent: #b6890f;
+    --accent-hover: #ac712e;
+
+    --scrollbar-bg: var(--bg-sidebar);
+    --scrollbar-thumb: var(--accent);
+}
+
+/* ===========================
+   GLOBAL
+   =========================== */
+body {
+    margin: 0;
+    background: var(--bg-main);
+    color: var(--text-main);
+    font-family: Arial, sans-serif;
+}
+
+#pageWrapper {
+    display: flex;
+    height: 100vh;
+}
+
+/* ===========================
+   SIDEBAR
+   =========================== */
+#sidebar {
+    width: 260px;
+    background: var(--bg-sidebar);
+    display: flex;
+    flex-direction: column;
+    padding: 15px;
+    box-sizing: border-box;
+}
+
+#gameFilter {
+    width: calc(100% - 20px); /* prevents edge hugging */
+    padding: 8px;
+    border: none;
+    background: var(--bg-card);
+    color: var(--text-main);
+    margin-bottom: 12px;
+    margin-right: 2px; /* adds the missing breathing room */
+}
+
+#gamesList {
+    flex: 1;
+    overflow-y: auto;
+    padding-right: 5px;
+}
+
+/* Scrollbar styling */
+#gamesList::-webkit-scrollbar {
+    width: 10px;
+}
+#gamesList::-webkit-scrollbar-track {
+    background: var(--scrollbar-bg);
+}
+#gamesList::-webkit-scrollbar-thumb {
+    background: var(--scrollbar-thumb);
+}
+
+/* Game items */
+.gameItem {
+    background: var(--bg-card);
+    padding: 10px;
+    margin-bottom: 8px;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+.gameItem:hover {
+    background: var(--accent-hover);
+}
+
+#backHome {
+    display: block;
+    text-align: center;
+    padding: 10px;
+    background: var(--accent);
+    color: var(--text-main);
+    text-decoration: none;
+    cursor: pointer;
+}
+#backHome:hover {
+    background: var(--accent-hover);
+}
+
+/* ===========================
+   MAIN CONTENT
+   =========================== */
+#mainContent {
+    flex: 1;
+    padding: 20px;
+    overflow-y: auto;
+}
+
+#selectedGameName {
+    text-align: center;
+    margin-top: 0;
+    margin-bottom: 25px;
+}
+
+/* ===========================
+   CHALLENGE SECTIONS
+   =========================== */
+#challengeWrapper {
+    display: flex;
+    gap: 20px;
+    height: calc(100vh - 140px);
+}
+
+.challengeSection {
+    flex: 1;
+    background: var(--bg-card);
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.addChallengeBtn {
+    background: var(--accent);
+    border: none;
+    padding: 10px;
+    color: var(--text-main);
+    cursor: pointer;
+    margin-bottom: 15px;
+}
+.addChallengeBtn:hover {
+    background: var(--accent-hover);
+}
+
+.challengeList {
+    flex: 1;
+    overflow-y: auto;
+    padding-right: 5px;
+}
+
+/* Scrollbars match background */
+.challengeList::-webkit-scrollbar {
+    width: 10px;
+}
+.challengeList::-webkit-scrollbar-track {
+    background: var(--bg-card);
+}
+.challengeList::-webkit-scrollbar-thumb {
+    background: var(--accent);
+}
+
+/* Challenge rows */
+.challengeRow {
+    background: var(--bg-sidebar);
+    padding: 10px;
+    margin-bottom: 10px;
+    color: var(--text-main);
+}

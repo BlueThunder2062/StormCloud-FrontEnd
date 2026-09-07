@@ -202,12 +202,3 @@ gameChallengesImage.addEventListener("mouseenter", () => {
 gameChallengesImage.addEventListener("mouseleave", () => {
     gameChallengesImage.src = "images/GameChallengesMouseOff.png";
 });
-
-
-//makes it so the hover image is displayed when the mouse is hovered over
-gamesRankingImage.addEventListener("mouseenter", () => {
-    gamesRankingImage.src = "images/GamesRankingMouseOn.png";
-});
-gamesRankingImage.addEventListener("mouseleave", () => {
-    gamesRankingImage.src = "images/GamesRankingMouseOff.png";
-});
