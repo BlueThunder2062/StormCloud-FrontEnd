@@ -193,7 +193,7 @@ gamesRankingImage.addEventListener("mouseleave", () => {
 });
 
 //Takes user to game challenges
-gameChallengesImage.addEventListener("click", () => window.location.href = "gameChallenges.html");
+gameChallengesImage.addEventListener("click", () => window.location.href = "gamesChallenges.html");
 
 //makes it so the hover image is displayed when the mouse is hovered over
 gameChallengesImage.addEventListener("mouseenter", () => {
