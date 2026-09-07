@@ -106,6 +106,19 @@ body {
     background: var(--button-bg);
 }
 
+#user-list::-webkit-scrollbar {
+    width: 10px;
+}
+
+#user-list::-webkit-scrollbar-track {
+    background: var(--sidebar-bg);   /* or any color you want */
+}
+
+#user-list::-webkit-scrollbar-thumb {
+    background: var(--button-bg);    /* scrollbar handle color */
+}
+
+
 /* Main content */
 #main-content {
     flex-grow: 1;
@@ -193,6 +206,19 @@ body {
     border-radius: 6px;
     gap: 10px;
 }
+
+#game-list::-webkit-scrollbar {
+    width: 10px;
+}
+
+#game-list::-webkit-scrollbar-track {
+    background: var(--game-list-bg);   /* matches the background behind it */
+}
+
+#game-list::-webkit-scrollbar-thumb {
+    background: var(--button-bg);      /* or any accent color you prefer */
+}
+
 
 .game-title {
     font-weight: bold;
