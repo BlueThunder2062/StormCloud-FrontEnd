@@ -115,7 +115,8 @@ body {
 }
 
 #user-list::-webkit-scrollbar-thumb {
-    background: var(--button-bg);    /* scrollbar handle color */
+    background: var(--searchbox-bg);    /* scrollbar handle color */
+    border-radius: 10px;   /* ← makes the scroll wheel rounded */
 }
 
 
@@ -216,7 +217,8 @@ body {
 }
 
 #game-list::-webkit-scrollbar-thumb {
-    background: var(--button-bg);      /* or any accent color you prefer */
+    background: var(--searchbox-bg);      /* or any accent color you prefer */
+    border-radius: 10px;   /* ← makes the scroll wheel rounded */
 }
 
 
