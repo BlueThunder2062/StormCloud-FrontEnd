@@ -15,12 +15,12 @@
         <div id="characterGrid" class="character-grid">
 
             <!-- Example Item -->
-            <div class="addGame-card">
+            <div class="addGame-card" id = "addGameBtn">
                 <img src="images/GuessTheCharacterCreateGame.png" alt="Create New Game">
                 <p>Create New Game</p>
             </div>
 
-            <!-- Example game cards
+            <!-- Example game cards 
             <div class="game-card">
                 <div class="game-value">1</div>
                 <p>All Characters are blue.</p>
@@ -35,14 +35,62 @@
                 <div class="game-value">3</div>
                 <p>All characters like to sing.</p>
             </div>
-            -->
+           -->
         </div>
 
     </div>
 
 
-    <!-- SCREEN 2 -->
+    <!-- SCREEN 2 - CREATE GAME -->
     <div id="screen2" class="screen hidden">
+
+        <div class="create-game-container">
+
+            <!-- Theme -->
+            <input
+                type="text"
+                id="themeInput"
+                placeholder="Enter Theme..."
+            >
+
+            <!-- Teams -->
+            <div id="teamContainer" class="team-container">
+
+                <!-- Team Card Example -->
+                <div class="team-card">
+
+                    <div class="team-image-upload">
+                        <img
+                            class="team-image"
+                            src="images/UploadCharacter.png"
+                            alt="Upload Team Image">
+                    </div>
+
+                    <select class="player-select">
+                        <option selected disabled>Add Player</option>
+                        <option>Andrew</option>
+                        <option>Player 2</option>
+                        <option>Player 3</option>
+                    </select>
+
+                    <div class="player-list">
+                        Selected Players
+                    </div>
+
+                </div>
+
+                <!-- Add Team Card -->
+                <div class="add-team-card">
+                    +
+                </div>
+
+            </div>
+
+            <a href="#" id="createGameButton">
+                Create Game
+            </a>
+
+        </div>
 
     </div>
 
@@ -52,6 +100,13 @@
 
     </div>
 
-    <script src="guessTheCharacter.js"></script>
+    <!-- Always Visible Navigation -->
+    <div id="navigationBar">
+        <a id="homeButton" href="home.html">
+            ← Back to Storm Cloud Home
+        </a>
+    </div>
+
+    <script src="js/guessTheCharacter.js"></script>
 </body>
 </html>
