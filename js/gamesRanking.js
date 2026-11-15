@@ -186,7 +186,7 @@ function handleSort(type) {
 
     }
 
-    if (type === "User Ranking") {
+    if (type === "Your Ranking") {
         
         sortGamesByGivenUsersIdScore(userId);
 

@@ -210,10 +210,7 @@ guessCharacterImage.addEventListener("click", () => window.location.href = "gues
 //makes it so the hover image is displayed when the mouse is hovered over
 guessCharacterImage.addEventListener("mouseenter", () => {
     guessCharacterImage.src = "images/GuessTheCharacterMouseOn.png";
-    console.log("Test");
 });
 guessCharacterImage.addEventListener("mouseleave", () => {
     guessCharacterImage.src = "images/GuessTheCharacterMouseOff.png";
 });
-
-    console.log("Test1");
