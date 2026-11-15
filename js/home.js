@@ -11,6 +11,7 @@ const imgUserIcon = document.getElementById("userIcon")
 //const voiceLoungeImage = document.getElementById("voiceLounge");
 const gamesRankingImage = document.getElementById("gamesRanking");
 const gameChallengesImage = document.getElementById("gameChallenges");
+const guessCharacterImage = document.getElementById("guessTheCharacter");
 
 //component that allows the user to input a file
 const fileInput = document.getElementById("fileInput");
@@ -201,4 +202,15 @@ gameChallengesImage.addEventListener("mouseenter", () => {
 });
 gameChallengesImage.addEventListener("mouseleave", () => {
     gameChallengesImage.src = "images/GameChallengesMouseOff.png";
+});
+
+//Takes user to guess the character
+guessCharacterImage.addEventListener("click", () => window.location.href = "guessTheCharacter.html");
+
+//makes it so the hover image is displayed when the mouse is hovered over
+guessCharacterImage.addEventListener("mouseenter", () => {
+    guessCharacterImage.src = "images/GuessTheCharacterMouseOn.png";
+});
+guessCharacterImage.addEventListener("mouseleave", () => {
+    guessCharacterImage.src = "images/GuessTheCharacterMouseOff.png";
 });
