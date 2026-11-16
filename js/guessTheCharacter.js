@@ -105,6 +105,53 @@ function renderTeams() {
         const card = document.createElement("div");
         card.className = "team-card";
 
+        const imageUpload = document.createElement("div");
+        imageUpload.className = "team-image-upload";
+
+        const image = document.createElement("img");
+        image.className = "team-image";
+
+        image.src = team.image || "images/UploadCharacter.png";
+
+        image.alt = "Upload Team Image";
+
+        imageUpload.appendChild(image);
+
+        card.appendChild(imageUpload);
+
+        const fileInput = document.createElement("input");
+
+        fileInput.type = "file";
+        fileInput.accept = "image/*";
+
+        fileInput.style.display = "none";
+
+        imageUpload.addEventListener("click", () => {
+            fileInput.click();
+        });
+
+        fileInput.addEventListener("change", () => {
+
+            const file = fileInput.files[0];
+
+            if (!file) {
+                return;
+            }
+
+            const reader = new FileReader();
+
+            reader.onload = function(event) {
+
+                team.image = event.target.result;
+
+                renderTeams();
+            };
+
+            reader.readAsDataURL(file);
+        });
+
+        card.appendChild(fileInput);
+
         const select = document.createElement("select");
         select.className = "player-select";
 
@@ -127,7 +174,7 @@ function renderTeams() {
         select.addEventListener("change", () => {
 
             console.log("Change event fired");
-            
+
             if (select.value === "")
                 return;
 
