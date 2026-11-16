@@ -178,12 +178,3 @@ function renderTeams() {
         .getElementById("addTeam")
         .addEventListener("click", addTeam);
 }
-
-playerSelect.addEventListener("change", () => {
-
-    const selectedPlayer = playerSelect.value;
-
-    // Add player to list here
-
-    playerSelect.selectedIndex = 0;
-});
