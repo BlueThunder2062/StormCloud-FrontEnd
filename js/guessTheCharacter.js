@@ -10,7 +10,7 @@ const createGameScreen = document.getElementById("screen2");
 const gameScreen = document.getElementById("screen3");
 
 //hides the screen at the start
-selectFileScreen.add("hidden");
+selectFileScreen.classList.add("hidden");
 
 let userId;
 
@@ -27,7 +27,7 @@ fetch(backendString + "/checkSession", {
 
         //gets rid of the disclaimer and shows the main screen
         waitScreen.style.display = "none";
-        selectFileScreen.remove("hidden");
+        selectFileScreen.classList.remove("hidden");
 
         userId = data.userId;
 
