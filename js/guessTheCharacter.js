@@ -43,6 +43,10 @@ fetch(backendString + "/checkSession", {
 
 });
 
+//Heartbeat that keeps the server awake as long as the user is on the website
+import { startHeartbeat } from "./heartbeat.js";
+startHeartbeat(backendString + "/ping");
+
 const createGameBtn = document.getElementById("addGameBtn")
 
 createGameBtn.addEventListener("click", async () => {
@@ -50,7 +54,7 @@ createGameBtn.addEventListener("click", async () => {
     selectFileScreen.classList.add("hidden");
     createGameScreen.classList.remove("hidden");
 
-    const response = await fetch("/getAllUsers");
+    const response = await fetch(backendString + "/getAllUsers");
     const data = await response.json();
 
     const users = data.users.filter(user => user._id !== userId);
