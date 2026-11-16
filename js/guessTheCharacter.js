@@ -48,6 +48,9 @@ import { startHeartbeat } from "./heartbeat.js";
 startHeartbeat(backendString + "/ping");
 
 const createGameBtn = document.getElementById("addGameBtn")
+const addTeamBtn = document.getElementById("addTeam");
+
+let players = [];
 
 createGameBtn.addEventListener("click", async () => {
 
@@ -59,13 +62,122 @@ createGameBtn.addEventListener("click", async () => {
 
     const users = data.users.filter(user => user._id !== userId);
 
+    //reset players to have a clean slate
+    players = [];
+
     for(let i = 0; i < users.length; i++){
 
-        console.log(users[i].username)
+        //adds all users to the players list
+        players.push(users[i].username);
 
     }
 
 });
+
+let teams = [];
+let nextTeamId = 0;
+
+document.getElementById("addTeam").addEventListener("click", addTeam);
+
+function addTeam() {
+
+    const team = {
+        id: nextTeamId++,
+        image: null,
+        players: []
+    };
+
+    teams.push(team);
+
+    renderTeams();
+}
+
+function renderTeams() {
+
+    const container =
+        document.getElementById("teamContainer");
+
+    // Remove old team cards
+    container.innerHTML = "";
+
+    teams.forEach(team => {
+
+        const card = document.createElement("div");
+        card.className = "team-card";
+
+        const select = document.createElement("select");
+        select.className = "player-select";
+
+        select.innerHTML =
+            '<option selected disabled value="">Add Player</option>';
+
+        players.forEach(player => {
+
+            const option =
+                document.createElement("option");
+
+            option.value = player;
+            option.textContent = player;
+
+            select.appendChild(option);
+        });
+
+        // Event listener for THIS team
+        //this will add the player to this team and rerender everything
+        select.addEventListener("change", () => {
+
+            if (select.value === "")
+                return;
+
+            team.players.push(select.value);
+
+            console.log(teams);
+
+            const index = players.indexOf(select.value);
+
+            if (index !== -1) {
+                players.splice(index, 1);
+            }
+
+            renderTeams();
+        });
+
+        const playerList =
+            document.createElement("div");
+
+        playerList.className = "player-list";
+
+        playerList.innerHTML =
+            "<strong>Selected Players:</strong>";
+
+        team.players.forEach(player => {
+
+            const playerDiv =
+                document.createElement("div");
+
+            playerDiv.textContent = player;
+
+            playerList.appendChild(playerDiv);
+        });
+
+        card.appendChild(select);
+        card.appendChild(playerList);
+
+        container.appendChild(card);
+
+    });
+
+    // Re-add the + card
+    container.innerHTML += `
+        <div class="add-team-card" id="addTeam">
+            +
+        </div>
+    `;
+
+    document
+        .getElementById("addTeam")
+        .addEventListener("click", addTeam);
+}
 
 playerSelect.addEventListener("change", () => {
 
