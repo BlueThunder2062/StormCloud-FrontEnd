@@ -126,6 +126,8 @@ function renderTeams() {
         //this will add the player to this team and rerender everything
         select.addEventListener("change", () => {
 
+            console.log("Change event fired");
+            
             if (select.value === "")
                 return;
 
@@ -168,11 +170,12 @@ function renderTeams() {
     });
 
     // Re-add the + card
-    container.innerHTML += `
-        <div class="add-team-card" id="addTeam">
-            +
-        </div>
-    `;
+    const addButton = document.createElement("div");
+    addButton.className = "add-team-card";
+    addButton.id = "addTeam";
+    addButton.textContent = "+";
+
+    container.appendChild(addButton);
 
     document
         .getElementById("addTeam")
