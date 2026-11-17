@@ -1,4 +1,4 @@
-console.log("gamesRanking.js loaded");
+console.log("guessTheCharacter.js loaded");
 
 const backendString = "https://stormcloud-backend.onrender.com";//"http://localhost:3000";
 
@@ -71,6 +71,8 @@ createGameBtn.addEventListener("click", async () => {
         players.push(users[i].username);
 
     }
+
+    addTeam();
 
 });
 
