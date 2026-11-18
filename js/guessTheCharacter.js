@@ -548,3 +548,56 @@ async function checkRevealStatus() {
     gameClicked(currentGame);
 
 }
+
+const deleteGameButton = document.getElementById("deleteGameButton");
+deleteGameButton.addEventListener("click", deleteGame);
+
+async function deleteGame() {
+
+    const confirmed = confirm(
+        "Are you sure you want to delete this game?"
+    );
+
+    if (!confirmed) {
+        return;
+    }
+
+    deleteGameButton.disabled = true;
+
+    try {
+
+        const response = await fetch(
+            backendString + "/deleteGuessCharacterGame",
+            {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    gameId: currentGame._id
+                })
+            }
+        );
+
+        const data = await response.json();
+
+        if (!response.ok || !data.success) {
+
+            deleteGameButton.disabled = false;
+
+            alert("Failed to delete game.");
+
+            return;
+        }
+
+        location.reload();
+
+    } catch (err) {
+
+        console.error(err);
+
+        deleteGameButton.disabled = false;
+
+        alert("An unexpected error occurred.");
+    }
+}
