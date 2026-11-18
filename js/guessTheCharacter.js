@@ -390,6 +390,9 @@ function gameClicked(game) {
         team.players.includes(username)
     );
 
+    console.log("Username:", username);
+    console.log("User Team:", userTeam);
+
     if(userTeam){
 
         if(userTeam.revealed){
