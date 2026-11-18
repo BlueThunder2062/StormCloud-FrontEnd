@@ -42,14 +42,14 @@ fetch(backendString + "/checkSession", {
 
     } else {
         
-        //window.location.href = "index.html";
+        window.location.href = "index.html";
 
     }
 })
 .catch(err => {
     
     console.log(err);
-    //window.location.href = "index.html";
+    window.location.href = "index.html";
 
 });
 
