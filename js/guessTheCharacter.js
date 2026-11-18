@@ -402,7 +402,7 @@ function gameClicked(game) {
 
         const image = document.createElement("img");
         image.className = "opponent-team-image";
-        image.src = "images/GuessTheCharacterMouseOff.png";
+        image.src = team.image;
         image.alt = "Team Character";
 
         const revealButton =
