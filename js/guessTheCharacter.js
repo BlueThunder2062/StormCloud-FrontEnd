@@ -367,6 +367,8 @@ async function getAndDisplaySavedGames() {
 let currentGame;
 const userImage = document.getElementById("currentTeamImage");
 
+let revealInterval = null;
+
 function gameClicked(game) {
 
     console.log(game);
@@ -508,7 +510,9 @@ function gameClicked(game) {
 
     });
 
-    setInterval(checkRevealStatus, 1000);
+    if (!revealInterval) {
+        revealInterval = setInterval(checkRevealStatus, 1000);
+    }
 
 }
 
