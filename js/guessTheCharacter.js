@@ -48,7 +48,7 @@ import { startHeartbeat } from "./heartbeat.js";
 startHeartbeat(backendString + "/ping");
 
 const createGameBtn = document.getElementById("addGameBtn")
-const addTeamBtn = document.getElementById("addTeam");
+//const addTeamBtn = document.getElementById("addTeam");
 
 let players = [];
 
@@ -229,4 +229,22 @@ function renderTeams() {
     document
         .getElementById("addTeam")
         .addEventListener("click", addTeam);
+}
+
+document.getElementById("createGameButton").addEventListener("click", createGame);
+
+function createGame(event) {
+
+    //prevents link stuff since it's not technically a button tag
+    event.preventDefault();
+
+    const gameData = {
+        
+        theme: document.getElementById("themeInput").value,
+        teams: teams
+
+    };
+
+    console.log(gameData);
+
 }
