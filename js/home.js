@@ -198,10 +198,10 @@ gameChallengesImage.addEventListener("click", () => window.location.href = "game
 
 //makes it so the hover image is displayed when the mouse is hovered over
 gameChallengesImage.addEventListener("mouseenter", () => {
-    gameChallengesImage.src = "images/GameChallengesMouseOn.png";
+    gameChallengesImage.src = "images/GameChallengesMouseOnUC.png";
 });
 gameChallengesImage.addEventListener("mouseleave", () => {
-    gameChallengesImage.src = "images/GameChallengesMouseOff.png";
+    gameChallengesImage.src = "images/GameChallengesMouseOffUC.png";
 });
 
 //Takes user to guess the character
