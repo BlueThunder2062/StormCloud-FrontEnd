@@ -52,6 +52,7 @@ const createGameBtn = document.getElementById("addGameBtn")
 //const addTeamBtn = document.getElementById("addTeam");
 
 let players = [];
+let username;
 
 createGameBtn.addEventListener("click", async () => {
 
@@ -62,6 +63,10 @@ createGameBtn.addEventListener("click", async () => {
     const data = await response.json();
 
     const users = data.users.filter(user => user._id !== userId);
+
+    username = data.users.find(
+        user => user._id === userId
+    )?.username;
 
     //reset players to have a clean slate
     players = [];
@@ -252,6 +257,40 @@ async function createGame(event) {
 
     };
 
+    if (!themeInput.value.trim()) {
+
+        alert("Please enter a theme. (Put any text if you don't want a theme)");
+
+        createGameButton.style.pointerEvents = "auto";
+        createGameButton.style.opacity = "1";
+
+        return;
+    }
+
+    for (const team of teams) {
+
+        if (!team.image) {
+
+            alert("Every team must have an image.");
+
+            createGameButton.style.pointerEvents = "auto";
+            createGameButton.style.opacity = "1";
+
+            return;
+        }
+
+        if (team.players.length === 0) {
+
+            alert("Every team must have at least one player.");
+
+            createGameButton.style.pointerEvents = "auto";
+            createGameButton.style.opacity = "1";
+
+            return;
+        }
+
+    }
+
     const response = await fetch(
         backendString + "/createGuessCharacterGame",
         {
@@ -318,6 +357,7 @@ async function getAndDisplaySavedGames() {
 }
 
 let currentGame;
+const userImage = document.getElementById("currentTeamImage");
 
 function gameClicked(game) {
 
@@ -327,5 +367,72 @@ function gameClicked(game) {
 
     selectFileScreen.classList.add("hidden");
     gameScreen.classList.remove("hidden");
+    
+    const themeText = document.getElementById("gameTheme");
+
+    themeText.textContent = game.theme;
+
+    const userImageData = game.teams.find(team =>
+        team.players.includes(username)
+    )?.image;
+
+    if (userImageData) {
+        userImage.src = userImageData;
+    }
+
+    //display the teams
+    const otherTeamsContainer =
+    document.getElementById("otherTeamsContainer");
+
+    otherTeamsContainer.innerHTML = "";
+
+    const userTeam = currentGame.teams.find(team =>
+        team.players.includes(username)
+    );
+
+    currentGame.teams.forEach(team => {
+
+        // Skip the user's own team
+        if (team === userTeam) {
+            return;
+        }
+
+        const teamDiv = document.createElement("div");
+        teamDiv.className = "opponent-team";
+
+        const image = document.createElement("img");
+        image.className = "opponent-team-image";
+        image.src = "images/GuessTheCharacterMouseOff.png";
+        image.alt = "Team Character";
+
+        const revealButton =
+            document.createElement("button");
+
+        revealButton.className = "reveal-button";
+        revealButton.textContent = "Reveal";
+
+        const playerList =
+            document.createElement("div");
+
+        playerList.className = "team-player-list";
+
+        team.players.forEach(player => {
+
+            const playerDiv =
+                document.createElement("div");
+
+            playerDiv.textContent = player;
+
+            playerList.appendChild(playerDiv);
+
+        });
+
+        teamDiv.appendChild(image);
+        teamDiv.appendChild(revealButton);
+        teamDiv.appendChild(playerList);
+
+        otherTeamsContainer.appendChild(teamDiv);
+
+    });
 
 }

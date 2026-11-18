@@ -310,3 +310,11 @@ body {
 
     cursor: pointer;
 }
+
+.reveal-button:hover {
+    background-color: #7a3567;
+}
+
+#deleteGameButton:hover {
+    background-color: #7a3567;
+}
