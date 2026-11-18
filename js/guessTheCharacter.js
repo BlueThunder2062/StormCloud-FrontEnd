@@ -317,8 +317,15 @@ async function getAndDisplaySavedGames() {
 
 }
 
+let currentGame;
+
 function gameClicked(game) {
 
     console.log(game);
+
+    currentGame = game;
+
+    selectFileScreen.classList.add("hidden");
+    gameScreen.classList.remove("hidden");
 
 }

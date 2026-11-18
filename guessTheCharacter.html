@@ -96,8 +96,59 @@
     </div>
 
 
-    <!-- SCREEN 3 -->
+    <!-- SCREEN 3 - PLAY GAME -->
     <div id="screen3" class="screen hidden">
+
+        <div class="game-screen-container">
+
+            <h1 id="gameTheme">
+                
+            </h1>
+
+            <!-- Current User's Team -->
+            <div class="current-team-section">
+
+                <div id="currentTeamImageContainer">
+                    <img
+                        id="currentTeamImage"
+                        src="images/GuessTheCharacterMouseOff.png"
+                        alt="Current Team Character">
+                </div>
+
+            </div>
+
+            <!-- Other Teams -->
+            <div id="otherTeamsContainer">
+
+                <!-- Dynamically generated -->
+
+                <!-- Example-->
+                <div class="opponent-team">
+
+                    <img
+                        class="opponent-team-image"
+                        src="images/GuessTheCharacterMouseOff.png"
+                        alt="Team Character">
+
+                    <button class="reveal-button">
+                        Reveal
+                    </button>
+
+                    <div class="team-player-list">
+                        <div>Team 1 Person A</div>
+                        <div>Team 1 Person B</div>
+                    </div>
+
+                </div>
+                
+
+            </div>
+
+            <button id="deleteGameButton">
+                Delete
+            </button>
+
+        </div>
 
     </div>
 
