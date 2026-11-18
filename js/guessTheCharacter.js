@@ -32,9 +32,9 @@ fetch(backendString + "/checkSession", {
         userId = data.userId;
 
         const response = await fetch(backendString + "/getAllUsers");
-        const data = await response.json();
+        const usersData = await response.json();
 
-        username = data.users.find(
+        username = usersData.users.find(
             user => user._id === userId
         )?.username;
 
