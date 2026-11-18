@@ -451,6 +451,28 @@ function gameClicked(game) {
         revealButton.className = "reveal-button";
         revealButton.textContent = "Reveal";
 
+        revealButton.addEventListener("click", async () => {
+
+            const response = await fetch(
+                backendString + "/revealGuessCharacterTeam",
+                {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+                    body: JSON.stringify({
+                        gameId: currentGame._id,
+                        teamId: team.id
+                    })
+                }
+            );
+
+            const data = await response.json();
+
+            console.log(data);
+
+        });
+
         const playerList =
             document.createElement("div");
 
