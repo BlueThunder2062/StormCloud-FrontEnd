@@ -508,4 +508,39 @@ function gameClicked(game) {
 
     });
 
+    setInterval(checkRevealStatus, 1000);
+
+}
+
+async function checkRevealStatus() {
+
+    const response = await fetch(
+        backendString + "/getAllGuessTheCharacterGames"
+    );
+
+    const data = await response.json();
+
+    const updatedGame = data.games.find(game =>
+        game._id === currentGame._id
+    );
+
+    if (!updatedGame) {
+        return;
+    }
+
+    currentGame = updatedGame;
+
+    const userTeam = currentGame.teams.find(team =>
+        team.players.includes(username)
+    );
+
+    if (userTeam?.revealed) {
+
+        userImage.src = userTeam.image;
+        userImage.style.visibility = "visible";
+
+    }
+
+    gameClicked(currentGame);
+
 }
