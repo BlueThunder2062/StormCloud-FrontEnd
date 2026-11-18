@@ -469,9 +469,20 @@ function gameClicked(game) {
 
             const data = await response.json();
 
-            console.log(data);
+            if (data.success) {
+
+                revealButton.style.display = "none";
+
+            }
 
         });
+
+        //don't show the reveal button if the character is already revealed
+        if(team.revealed){
+
+            revealButton.style.display = "none";
+
+        }
 
         const playerList =
             document.createElement("div");
