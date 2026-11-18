@@ -293,8 +293,6 @@ async function getAndDisplaySavedGames() {
     const characterGrid =
         document.getElementById("characterGrid");
 
-    characterGrid.innerHTML = "";
-
     savedGames.forEach((game, index) => {
 
         const gameCard =
