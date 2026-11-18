@@ -262,7 +262,7 @@ async function createGame(event) {
         }
     );
 
-    if (!response.ok || !data.success) {
+    if (!response.ok) {
 
         createGameButton.style.pointerEvents = "auto";
         createGameButton.style.opacity = "1";
