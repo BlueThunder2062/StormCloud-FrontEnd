@@ -233,7 +233,7 @@ function renderTeams() {
 
 document.getElementById("createGameButton").addEventListener("click", createGame);
 
-function createGame(event) {
+async function createGame(event) {
 
     //prevents link stuff since it's not technically a button tag
     event.preventDefault();
@@ -245,6 +245,19 @@ function createGame(event) {
 
     };
 
-    console.log(gameData);
+    const response = await fetch(
+        backendString + "/createGuessCharacterGame",
+        {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(gameData)
+        }
+    );
+
+    const data = await response.json();
+
+    console.log(data);
 
 }
