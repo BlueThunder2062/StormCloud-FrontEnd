@@ -86,7 +86,8 @@ function addTeam() {
     const team = {
         id: nextTeamId++,
         image: null,
-        players: []
+        players: [],
+        revealed: false
     };
 
     teams.push(team);
