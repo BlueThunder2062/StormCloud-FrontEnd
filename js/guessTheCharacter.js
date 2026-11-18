@@ -232,9 +232,14 @@ function renderTeams() {
         .addEventListener("click", addTeam);
 }
 
-document.getElementById("createGameButton").addEventListener("click", createGame);
+const createGameButton = document.getElementById("createGameButton");
+
+createGameButton.addEventListener("click", createGame);
 
 async function createGame(event) {
+
+    createGameButton.style.pointerEvents = "none";
+    createGameButton.style.opacity = "0.5";
 
     //prevents link stuff since it's not technically a button tag
     event.preventDefault();
@@ -257,8 +262,17 @@ async function createGame(event) {
         }
     );
 
-    const data = await response.json();
+    if (!response.ok || !data.success) {
 
-    console.log(data);
+        createGameButton.style.pointerEvents = "auto";
+        createGameButton.style.opacity = "1";
+
+        alert("Failed to create game.");
+
+        return;
+    }
+
+    // Success
+    location.reload();
 
 }
