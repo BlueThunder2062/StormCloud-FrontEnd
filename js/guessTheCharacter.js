@@ -13,6 +13,7 @@ const gameScreen = document.getElementById("screen3");
 selectFileScreen.classList.add("hidden");
 
 let userId;
+let username;
 
 fetch(backendString + "/checkSession", {
     method: "POST",
@@ -29,6 +30,13 @@ fetch(backendString + "/checkSession", {
         selectFileScreen.classList.remove("hidden");
 
         userId = data.userId;
+
+        const response = await fetch(backendString + "/getAllUsers");
+        const data = await response.json();
+
+        username = data.users.find(
+            user => user._id === userId
+        )?.username;
 
         getAndDisplaySavedGames();
 
@@ -52,7 +60,6 @@ const createGameBtn = document.getElementById("addGameBtn")
 //const addTeamBtn = document.getElementById("addTeam");
 
 let players = [];
-let username;
 
 createGameBtn.addEventListener("click", async () => {
 
@@ -389,9 +396,6 @@ function gameClicked(game) {
     const userTeam = currentGame.teams.find(team =>
         team.players.includes(username)
     );
-
-    console.log("Username:", username);
-    console.log("User Team:", userTeam);
 
     if(userTeam){
 
