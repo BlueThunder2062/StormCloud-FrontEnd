@@ -30,6 +30,8 @@ fetch(backendString + "/checkSession", {
 
         userId = data.userId;
 
+        getAndDisplaySavedGames();
+
     } else {
         
         window.location.href = "index.html";
@@ -273,5 +275,52 @@ async function createGame(event) {
 
     // Success
     location.reload();
+
+}
+
+let savedGames = [];
+
+async function getAndDisplaySavedGames() {
+
+    const response = await fetch(
+        backendString + "/getAllGuessTheCharacterGames"
+    );
+
+    const data = await response.json();
+
+    savedGames = data.games;
+
+    const characterGrid =
+        document.getElementById("characterGrid");
+
+    characterGrid.innerHTML = "";
+
+    savedGames.forEach((game, index) => {
+
+        const gameCard =
+            document.createElement("div");
+
+        gameCard.className = "game-card";
+
+        gameCard.innerHTML = `
+            <div class="game-value">
+                ${index + 1}
+            </div>
+            <p>${game.theme}</p>
+        `;
+
+        gameCard.addEventListener("click", () => {
+            gameClicked(game);
+        });
+
+        characterGrid.appendChild(gameCard);
+
+    });
+
+}
+
+function gameClicked(game) {
+
+    console.log(game);
 
 }
