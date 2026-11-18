@@ -23,7 +23,6 @@ fetch(backendString + "/checkSession", {
     if (data.valid) {
         
         //valid data so user can stay
-        //get the home page data and display it
 
         //gets rid of the disclaimer and shows the main screen
         waitScreen.style.display = "none";

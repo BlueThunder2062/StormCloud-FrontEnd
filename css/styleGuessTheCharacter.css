@@ -14,12 +14,11 @@ body {
 }
 
 #navigationBar {
-    /*position: fixed;*/
-    bottom: 20px;
-    left: 50%;
-    transform: translateX(-50%);
+    display: flex;
+    justify-content: center;
 
-    z-index: 1000;
+    margin-top: 40px;
+    margin-bottom: 20px;
 }
 
 #homeButton {
