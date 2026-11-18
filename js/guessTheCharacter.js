@@ -390,6 +390,26 @@ function gameClicked(game) {
         team.players.includes(username)
     );
 
+    if(userTeam){
+
+        if(userTeam.revealed){
+
+            userImage.style.visibility = "visible";
+
+        }
+
+    }
+
+    //allows image pop up to close
+    document.getElementById("imagePopup")
+        .addEventListener("click", () => {
+
+            document.getElementById("imagePopup").style.display =
+                "none";
+
+        });
+    ///////////////
+
     currentGame.teams.forEach(team => {
 
         // Skip the user's own team
@@ -404,6 +424,18 @@ function gameClicked(game) {
         image.className = "opponent-team-image";
         image.src = team.image;
         image.alt = "Team Character";
+
+        //allows the imaage to be zoomed in on///////////
+        image.addEventListener("click", () => {
+
+            document.getElementById("popupImage").src =
+                image.src;
+
+            document.getElementById("imagePopup").style.display =
+                "flex";
+
+        });
+        ////////////////////
 
         const revealButton =
             document.createElement("button");
