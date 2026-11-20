@@ -511,7 +511,7 @@ function gameClicked(game) {
     });
 
     if (!revealInterval) {
-        revealInterval = setInterval(checkRevealStatus, 1000);
+        revealInterval = setInterval(checkRevealStatus, 5000);
     }
 
 }
