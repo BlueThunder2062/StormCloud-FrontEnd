@@ -518,6 +518,7 @@ function gameClicked(game) {
 
 async function checkRevealStatus() {
 
+    /*
     const response = await fetch(
         backendString + "/getAllGuessTheCharacterGames"
     );
@@ -544,7 +545,7 @@ async function checkRevealStatus() {
         userImage.style.visibility = "visible";
 
     }
-
+    */
     gameClicked(currentGame);
 
 }
