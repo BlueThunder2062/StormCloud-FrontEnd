@@ -518,7 +518,7 @@ function gameClicked(game) {
 
 async function checkRevealStatus() {
 
-    /*
+    
     const response = await fetch(
         backendString + "/getAllGuessTheCharacterGames"
     );
@@ -534,7 +534,7 @@ async function checkRevealStatus() {
     }
 
     currentGame = updatedGame;
-
+    /*
     const userTeam = currentGame.teams.find(team =>
         team.players.includes(username)
     );
