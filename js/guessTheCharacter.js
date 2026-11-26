@@ -370,9 +370,6 @@ async function getAndDisplaySavedGames() {
 
             const gameData = data.game;
 
-            console.log("click event");
-            console.log(gameData);
-
             gameClicked(gameData);
         });
 
@@ -392,9 +389,6 @@ function gameClicked(game) {
     console.log(game);
 
     currentGame = game;
-
-    console.log("click function");
-    console.log(game);
 
     selectFileScreen.classList.add("hidden");
     gameScreen.classList.remove("hidden");
@@ -539,16 +533,19 @@ function gameClicked(game) {
 
 async function checkRevealStatus() {
 
-    
-    const response = await fetch(
-        backendString + "/getAllGuessTheCharacterGames"
-    );
+    const response = await fetch(backendString + "/getGuessTheCharacterGame", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+            gameId: currentGame._id
+        })
+    });
 
     const data = await response.json();
 
-    const updatedGame = data.games.find(game =>
-        game._id === currentGame._id
-    );
+    const updatedGame = data.game;
 
     if (!updatedGame) {
         return;
