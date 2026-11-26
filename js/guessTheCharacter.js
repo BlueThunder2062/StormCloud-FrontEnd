@@ -354,7 +354,22 @@ async function getAndDisplaySavedGames() {
             <p>${game.theme}</p>
         `;
 
-        gameCard.addEventListener("click", () => {
+        gameCard.addEventListener("click", async () => {
+
+            const response = await fetch("/getGuessTheCharacterGame", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    gameId: game._id
+                })
+            });
+
+            const data = await response.json();
+
+            const game = data.game;
+
             gameClicked(game);
         });
 
