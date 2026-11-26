@@ -368,9 +368,9 @@ async function getAndDisplaySavedGames() {
 
             const data = await response.json();
 
-            const game = data.game;
+            const gameData = data.game;
 
-            gameClicked(game);
+            gameClicked(gameData);
         });
 
         characterGrid.appendChild(gameCard);
