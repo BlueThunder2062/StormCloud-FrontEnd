@@ -370,6 +370,9 @@ async function getAndDisplaySavedGames() {
 
             const gameData = data.game;
 
+            console.log("click event");
+            console.log(gameData);
+
             gameClicked(gameData);
         });
 
@@ -389,6 +392,9 @@ function gameClicked(game) {
     console.log(game);
 
     currentGame = game;
+
+    console.log("click function");
+    console.log(game);
 
     selectFileScreen.classList.add("hidden");
     gameScreen.classList.remove("hidden");
