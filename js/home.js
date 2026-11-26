@@ -68,11 +68,12 @@ function getAndDisplayHomePageData(){
         txtAnnouncement.textContent = data.announcement;
         txtUsername.textContent = data.username;
 
+        /*
         if(data.profilePic != null){
 
             imgUserIcon.src = data.profilePic;
 
-        }
+        }*/
 
         if(data.scrollAnnouncement){
 
@@ -82,6 +83,35 @@ function getAndDisplayHomePageData(){
         else{
 
             makeAnnouncementNotMove();
+
+        }
+
+        displayProfilePic();
+        
+    })
+    .catch(err => {
+        
+        //console.log(err);
+        window.location.href = "index.html";
+
+    });
+
+}
+
+function displayProfilePic(){
+
+    fetch(backendString + "/getUserProfilePic", {
+        method: "POST",
+        credentials: "include"   // ← sends the real session cookie automatically
+    })
+    .then(res => res.json())
+    .then(data => {
+
+        //handle displaying data here
+
+        if(data.profilePic != null){
+
+            imgUserIcon.src = data.profilePic;
 
         }
         
