@@ -356,7 +356,7 @@ async function getAndDisplaySavedGames() {
 
         gameCard.addEventListener("click", async () => {
 
-            const response = await fetch("/getGuessTheCharacterGame", {
+            const response = await fetch(backendString + "/getGuessTheCharacterGame", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json"
