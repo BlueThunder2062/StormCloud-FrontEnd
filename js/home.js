@@ -100,6 +100,8 @@ function getAndDisplayHomePageData(){
 
 function displayProfilePic(){
 
+    console.log("Function called");
+
     fetch(backendString + "/getUserProfilePic", {
         method: "POST",
         credentials: "include"   // ← sends the real session cookie automatically
@@ -107,10 +109,12 @@ function displayProfilePic(){
     .then(res => res.json())
     .then(data => {
 
+        console.log("Function fetched");
         //handle displaying data here
 
         if(data.profilePic != null){
 
+            console.log("not null");
             imgUserIcon.src = data.profilePic;
 
         }
